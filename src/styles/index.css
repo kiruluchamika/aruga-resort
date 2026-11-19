@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ivory-100 text-cocoa-950 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Leave room for the sticky header when jumping to a section */
+  section[id] {
+    scroll-margin-top: 77px;
+  }
+  @media (min-width: 640px) {
+    section[id] {
+      scroll-margin-top: 85px;
+    }
+  }
+
+  ::selection {
+    @apply bg-cocoa-800 text-gold-200;
+  }
+
+  /* Clear, consistent keyboard focus */
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.500');
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  /* Small rounded label above section titles */
+  .eyebrow-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-ocean-200 bg-ocean-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-ocean-800;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl font-bold leading-tight text-cocoa-900 sm:text-5xl;
+  }
+
+  .section-title-accent {
+    @apply font-normal italic text-gold-700;
+  }
+
+  .section-divider {
+    @apply mx-auto my-4 h-0.5 w-20 bg-gold-400;
+  }
+
+  .section-intro {
+    @apply text-base font-light leading-relaxed text-stone-600 sm:text-lg;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-cocoa-950 shadow-lg hover:scale-[1.03] hover:bg-gold-400 hover:shadow-gold-500/30;
+  }
+
+  .btn-dark {
+    @apply btn border border-gold-400/40 bg-cocoa-900 text-gold-200 shadow-md hover:bg-cocoa-800 hover:text-gold-100;
+  }
+
+  .btn-outline {
+    @apply btn border border-cocoa-200 bg-white text-cocoa-900 hover:border-gold-400 hover:bg-ivory-50;
+  }
+
+  /* Light sweep across an image on hover */
+  .hover-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-sheen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 10;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+    transform: skewX(-25deg);
+    transition: left 0.75s ease-in-out;
+    pointer-events: none;
+  }
+  .hover-sheen:hover::after {
+    left: 150%;
+  }
+
+  /* Dotted texture used on dark backgrounds */
+  .dot-pattern {
+    background-image: radial-gradient(theme('colors.gold.400') 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hover-sheen::after {
+    display: none;
+  }
+}

@@ -1,0 +1,68 @@
+# Builds the ARUGA RESORT website and publishes it to GitHub Pages.
+#
+# One-time setup: GitHub repository → Settings → Pages →
+#   Build and deployment → Source: "GitHub Actions"
+#
+# Runs on every push to `main`, and manually from the Actions tab.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least-privilege token: read the code, write to Pages, sign the deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time. A newer run waits for the current one to
+# finish instead of cancelling a deployment half-way through.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js (LTS)
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+        env:
+          # Works for https://<user>.github.io/aruga-resort/ AND for a custom
+          # domain later — GitHub Pages reports the correct values itself.
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
