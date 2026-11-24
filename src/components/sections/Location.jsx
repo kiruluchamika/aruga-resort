@@ -3,7 +3,7 @@ import Icon from '../common/Icon.jsx';
 import Reveal from '../common/Reveal.jsx';
 import SectionHeader from '../common/SectionHeader.jsx';
 import { contact, location, resort } from '../../data/resortConfig.js';
-import { directionsLink } from '../../utils/links.js';
+import { asset, directionsLink } from '../../utils/links.js';
 
 /** OpenStreetMap embed (free, no API key). Shows a pin only when exact coordinates are configured. */
 function mapEmbedUrl() {
@@ -63,6 +63,21 @@ export default function Location() {
                 )}
               </ul>
             </div>
+
+            <figure className="mb-6 flex flex-col items-center rounded-2xl border border-sand-200 bg-sand-50 p-4 text-center">
+              <img
+                src={asset('images/location-qr.jpeg')}
+                alt="QR code for the resort location"
+                width={1155}
+                height={1155}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-48 max-w-full bg-white object-contain"
+              />
+              <figcaption className="mt-3 text-sm font-semibold text-cocoa-900">
+                Scan for location
+              </figcaption>
+            </figure>
 
             <div className="flex flex-col gap-3 border-t border-sand-200 pt-6">
               {directions ? (

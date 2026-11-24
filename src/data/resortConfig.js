@@ -36,7 +36,7 @@ export const resort = {
 };
 
 /* ---------------------------------------------------------------------------
- * 2. Contact details — ALL UNCONFIRMED, so all empty.
+ * 2. Contact details
  *    Fill these in when they are confirmed. Examples of the expected format
  *    are shown in the comments.
  * ------------------------------------------------------------------------- */
@@ -47,8 +47,8 @@ export const contact = {
   phone: '',
   // e.g. 'stay@arugaresort.com'
   email: '',
-  // Full postal address once verified. e.g. 'Main Street, Arugam Bay, Pottuvil 32500'
-  address: '',
+  // Full postal address supplied by the resort.
+  address: 'No. 27/5, Sinhapura Road, Arugam Bay, Eastern Province, Sri Lanka.',
   // Google Maps share link to the exact resort pin, e.g. 'https://maps.app.goo.gl/...'
   googleMapsUrl: '',
   // Exact resort coordinates once verified, e.g. { lat: 6.8402, lng: 81.8360 }
