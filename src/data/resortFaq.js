@@ -2,13 +2,13 @@ export const resortFaq = [
   {
     icon: 'MapPin',
     question: 'Where is Resort Aruga located?',
-    answer: 'Resort Aruga is located in Arugam Bay, on our own 1.6-acre private land, just minutes away from the beach.',
+    answer: 'Resort Aruga is located at No. 27/5, Sinhapura Road, Arugam Bay, Eastern Province, Sri Lanka, on our own 1.6-acre private land, just minutes away from the beach.',
     keywords: ['location', 'located', 'where', 'address', 'beach', 'land'],
   },
   {
     icon: 'BedDouble',
     question: 'How many rooms do you have?',
-    answer: 'We have 8 private luxury cabanas, built for comfort, privacy and tropical relaxation.',
+    answer: 'We have 3 private luxury family cabanas and 5 private luxury double cabanas, built for comfort, privacy and tropical relaxation.',
     keywords: ['room', 'rooms', 'cabana', 'cabanas', 'accommodation', 'how many'],
   },
   {
@@ -26,7 +26,7 @@ export const resortFaq = [
   {
     icon: 'Utensils',
     question: 'Do you have a restaurant and bar?',
-    answer: 'Yes. We have an in-house restaurant serving local and international dishes and a bar with fresh drinks.',
+    answer: 'Yes. We have an in-house restaurant serving authentic Sri Lankan dishes and a bar with fresh drinks.',
     keywords: ['restaurant', 'bar', 'food', 'dining', 'drinks', 'dishes', 'eat'],
   },
   {
@@ -50,8 +50,8 @@ export const resortFaq = [
   {
     icon: 'CalendarCheck',
     question: 'How can I book a cabana?',
-    answer: 'You can book directly on our website or via WhatsApp. Direct bookings get the best rate.',
-    keywords: ['book', 'booking', 'reserve', 'reservation', 'whatsapp', 'rate', 'rates', 'price', 'cost', 'availability'],
+    answer: 'You can book directly on our website or via email. Direct bookings get the best rate.',
+    keywords: ['book', 'booking', 'reserve', 'reservation', 'email', 'e mail', 'rate', 'rates', 'price', 'cost', 'availability'],
   },
   {
     icon: 'Leaf',
