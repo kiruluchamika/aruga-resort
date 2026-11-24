@@ -14,10 +14,20 @@ import {
   Sunrise,
   Trees,
   Waves,
+  Users,
+  Utensils,
+  Flame,
+  ShieldCheck,
+  Leaf,
 } from 'lucide-react';
 
 /** Icons that can be referenced by name from src/data/resortConfig.js */
 const ICONS = {
+  Users,
+  Utensils,
+  Flame,
+  ShieldCheck,
+  Leaf,
   Bath,
   BedDouble,
   CalendarCheck,

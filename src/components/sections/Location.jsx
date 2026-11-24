@@ -1,4 +1,4 @@
-import { ExternalLink, Info, MapPin } from 'lucide-react';
+import { ExternalLink, MapPin } from 'lucide-react';
 import Icon from '../common/Icon.jsx';
 import Reveal from '../common/Reveal.jsx';
 import SectionHeader from '../common/SectionHeader.jsx';
@@ -9,7 +9,7 @@ import { asset, directionsLink } from '../../utils/links.js';
 function mapEmbedUrl() {
   if (contact.coordinates) {
     const { lat, lng } = contact.coordinates;
-    const d = 0.012;
+    const d = 0.006;
     const bbox = [lng - d, lat - d, lng + d, lat + d].join(',');
     return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}`;
   }
@@ -80,17 +80,11 @@ export default function Location() {
             </figure>
 
             <div className="flex flex-col gap-3 border-t border-sand-200 pt-6">
-              {directions ? (
+              {directions && (
                 <a href={directions} target="_blank" rel="noopener noreferrer" className="btn-dark w-full rounded-xl py-3">
                   Get Directions
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 </a>
-              ) : (
-                <p className="flex items-start gap-2 rounded-xl bg-ocean-50 p-3 text-xs leading-relaxed text-ocean-900">
-                  <Info className="mt-0.5 h-4 w-4 shrink-0 text-ocean-700" aria-hidden="true" />
-                  The resort’s exact location and directions will be shared here soon, and are available when you
-                  enquire.
-                </p>
               )}
               <a href="#contact" className="text-center text-xs font-semibold text-ocean-700 hover:text-gold-800">
                 Ask us about getting to {resort.location.area} →

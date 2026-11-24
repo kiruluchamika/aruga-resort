@@ -5,6 +5,7 @@ import Reveal from '../common/Reveal.jsx';
 import SectionHeader from '../common/SectionHeader.jsx';
 import ResortImage from '../common/ResortImage.jsx';
 import Lightbox from '../common/Lightbox.jsx';
+import CabanaPackages from './CabanaPackages.jsx';
 import { cabanas, resort } from '../../data/resortConfig.js';
 import { getImage } from '../../data/galleryData.js';
 import { useDialog } from '../../hooks/useDialog.js';
@@ -169,6 +170,7 @@ export default function Cabanas() {
               </span>
             ))}
           </div>
+          <CabanaPackages />
         </SectionHeader>
 
         <Reveal

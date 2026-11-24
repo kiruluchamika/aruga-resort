@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
 import { ArrowUp, CalendarDays } from 'lucide-react';
 import { WhatsAppIcon } from '../common/BrandIcons.jsx';
+import ResortChat from './ResortChat.jsx';
 import { channels, openBooking, whatsappLink } from '../../utils/links.js';
 
 /** Bottom-right floating buttons: back to top, Book Your Stay, and WhatsApp (when configured). */
@@ -29,6 +30,7 @@ export default function FloatingActions() {
   const spring = { type: 'spring', stiffness: 350, damping: 26 };
 
   return (
+    <>
     <div className="pointer-events-none fixed bottom-5 right-4 z-30 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       <AnimatePresence>
         {showTop && (
@@ -92,5 +94,9 @@ export default function FloatingActions() {
         )}
       </AnimatePresence>
     </div>
+    <div className="pointer-events-none fixed bottom-5 left-4 z-30 sm:bottom-6 sm:left-6">
+      <ResortChat />
+    </div>
+    </>
   );
 }

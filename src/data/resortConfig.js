@@ -51,8 +51,8 @@ export const contact = {
   address: 'No. 27/5, Sinhapura Road, Arugam Bay, Eastern Province, Sri Lanka.',
   // Google Maps share link to the exact resort pin, e.g. 'https://maps.app.goo.gl/...'
   googleMapsUrl: '',
-  // Exact resort coordinates once verified, e.g. { lat: 6.8402, lng: 81.8360 }
-  coordinates: null,
+  // Exact pin supplied by the resort via Google Maps (27 Sinhapura Road).
+  coordinates: { lat: 6.8373875, lng: 81.8328812 },
 };
 
 /* ---------------------------------------------------------------------------
@@ -172,7 +172,7 @@ export const cabanas = {
     'Arugam Bay coastal setting',
   ],
   // Shown under the features. Remove once rates/amenities are published.
-  note: 'Rates, availability and in-cabana amenities are shared when you enquire.',
+  note: 'Explore Cabana Categories & Prices above for our meal packages. Please enquire to confirm availability and in-cabana amenities.',
   images: ['cabana-interior', 'cabana-beachfront-view', 'cabana-exterior'],
   // Set to a price string ONLY when confirmed, e.g. 'From LKR 25,000 / night'
   price: '',
@@ -331,37 +331,7 @@ export const location = {
 /* ---------------------------------------------------------------------------
  * 14. FAQ — answers use confirmed facts only
  * ------------------------------------------------------------------------- */
-export const faq = [
-  {
-    icon: 'BedDouble',
-    question: 'How many cabanas does ARUGA RESORT have?',
-    answer:
-      'ARUGA RESORT has eight beachfront-view cabanas, which keeps the resort intimate and peaceful.',
-  },
-  {
-    icon: 'Bath',
-    question: 'Does every cabana have its own bathroom?',
-    answer: 'Yes. Every cabana at ARUGA RESORT has its own attached bathroom.',
-  },
-  {
-    icon: 'MapPin',
-    question: 'Where is ARUGA RESORT located?',
-    answer:
-      'ARUGA RESORT is in Arugam Bay, on the east coast of Sri Lanka. Exact directions are shared when you enquire.',
-  },
-  {
-    icon: 'CalendarCheck',
-    question: 'How can I check availability and rates?',
-    answer:
-      'Send us an enquiry from the “Your ARUGA Escape Begins Here” section with your dates and number of guests, and we will reply with availability and rates.',
-  },
-  {
-    icon: 'HelpCircle',
-    question: 'Which facilities and services are available?',
-    answer:
-      'We are finalising the full list of facilities and services. Please ask about anything you need when you enquire and we will be happy to confirm.',
-  },
-];
+export { resortFaq as faq } from './resortFaq.js';
 
 /* ---------------------------------------------------------------------------
  * 15. Booking & contact section
